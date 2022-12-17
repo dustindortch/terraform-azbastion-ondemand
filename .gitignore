@@ -1,0 +1,30 @@
+# Local .terraform directories
+**/.terraform/*
+
+# .terraform.lock files
+**.terraform.lock*
+
+# .tfstate files
+**.tfstate
+**.tfstate.*
+
+# terraform.tf file
+**/terraform.tf
+
+# Crash log files
+crash.log
+
+# Ignore any .tfvars files that are generated automatically for each Terraform run. Most
+# .tfvars files are managed as part of configuration and so should be included in
+# version control.
+#
+#
+
+**.tfvars
+!example.tfvars
+
+# Include tfplan files to ignore the plan output of command: terraform plan -out=tfplan
+# example: *tfplan*
+*tfplan*
+
+
