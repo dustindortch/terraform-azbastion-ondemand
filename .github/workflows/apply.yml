@@ -15,8 +15,6 @@ jobs:
   deploy:
     name: Deploy
     runs-on: ubuntu-latest
-    environment:
-      name: Production
     env:
       ARM_USE_OIDC: true
       ARM_USE_AZUREAD: true
