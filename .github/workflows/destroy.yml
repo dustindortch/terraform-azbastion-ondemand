@@ -49,6 +49,7 @@ jobs:
         --account-name ${{secrets.TFSTATE_STORAGE_ACCOUNT_NAME}}
         --container-name ${{secrets.TFSTATE_CONTAINER_NAME}}
         --name ${{secrets.TFVARS_BLOB_NAME}}
+        --auth-mode login
 
     - name: Show TFVARS
       id: show-tfvars
