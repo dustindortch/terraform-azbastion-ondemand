@@ -3,6 +3,7 @@ name: Destroy Azure Bastion Host
 
 on:
   repository_dispatch:
+  workflow_dispatch:
 
 permissions:
   id-token: write
