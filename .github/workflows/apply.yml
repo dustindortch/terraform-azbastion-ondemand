@@ -34,9 +34,9 @@ jobs:
     - name: AZ CLI Login
       uses: azure/login@v1
       with:
-        client-id: ${{ var.AZURE_CLIENT_ID }}
-        tenant-id: ${{ var.AZURE_TENANT_ID }}
-        subscription-id: ${{ var.AZURE_SUBSCRIPTION_ID }}
+        client-id: ${{vars.AZURE_CLIENT_ID}}
+        tenant-id: ${{vars.AZURE_TENANT_ID}}
+        subscription-id: ${{vars.AZURE_SUBSCRIPTION_ID}}
 
     - name: Show AZ Subscription
       run: az account show
