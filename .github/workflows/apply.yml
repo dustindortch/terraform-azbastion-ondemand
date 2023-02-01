@@ -18,9 +18,9 @@ jobs:
     env:
       ARM_USE_OIDC: true
       ARM_USE_AZUREAD: true
-      ARM_CLIENT_ID: ${{var.AZURE_CLIENT_ID}}
-      ARM_TENANT_ID: ${{var.AZURE_TENANT_ID}}
-      ARM_SUBSCRIPTION_ID: ${{var.AZURE_SUBSCRIPTION_ID}}
+      ARM_CLIENT_ID: ${{vars.AZURE_CLIENT_ID}}
+      ARM_TENANT_ID: ${{vars.AZURE_TENANT_ID}}
+      ARM_SUBSCRIPTION_ID: ${{vars.AZURE_SUBSCRIPTION_ID}}
       TF_LOG: INFO
 
     steps:
@@ -46,9 +46,9 @@ jobs:
       run: >
         az storage blob download
         --file ./terraform.tfvars
-        --account-name ${{var.TFSTATE_STORAGE_ACCOUNT_NAME}}
-        --container-name ${{var.TFSTATE_CONTAINER_NAME}}
-        --name ${{var.TFVARS_BLOB_NAME}}
+        --account-name ${{vars.TFSTATE_STORAGE_ACCOUNT_NAME}}
+        --container-name ${{vars.TFSTATE_CONTAINER_NAME}}
+        --name ${{vars.TFVARS_BLOB_NAME}}
 
     - name: Show TFVARS
       id: show-tfvars
@@ -60,10 +60,10 @@ jobs:
         cat > backend.tf << EOF
         terraform {
           backend "azurerm" {
-            resource_group_name  = "${{var.TFSTATE_RESOURCE_GROUP_NAME}}"
-            storage_account_name = "${{var.TFSTATE_STORAGE_ACCOUNT_NAME}}"
-            container_name       = "${{var.TFSTATE_CONTAINER_NAME}}"
-            key                  = "${{var.TFSTATE_KEY}}"
+            resource_group_name  = "${{vars.TFSTATE_RESOURCE_GROUP_NAME}}"
+            storage_account_name = "${{vars.TFSTATE_STORAGE_ACCOUNT_NAME}}"
+            container_name       = "${{vars.TFSTATE_CONTAINER_NAME}}"
+            key                  = "${{vars.TFSTATE_KEY}}"
           }
         }
         EOF
