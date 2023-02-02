@@ -1,5 +1,5 @@
-variable "resource_group_names" {
-  type = list(string)
+variable "resource_group_name" {
+  type = string
 }
 
 variable "virtual_network_name" {
